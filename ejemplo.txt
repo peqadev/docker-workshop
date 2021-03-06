@@ -1,0 +1,1 @@
+Éste es un archivo de ejemplo que está haciendo agregado a la imagen de Docker y luego siendo ejecutado a través del docker run.
