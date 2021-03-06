@@ -1,0 +1,30 @@
+version: '3'
+
+volumes:
+  db_data:
+    driver: local
+
+services:
+  db:
+    image: 'docker.io/bitnami/mongodb:4.4-debian-10'
+    ports:
+      - "27017:27017"
+    volumes:
+      - 'db_data:/bitnami/mongodb'
+    environment:
+      MONGODB_USERNAME: mongodb
+      MONGODB_PASSWORD: mongodb
+      MONGODB_DATABASE: mongodb
+      MONGODB_PORT_NUMBER: 27017
+      MONGODB_ADMIN_PASSWORD: mongodbadminpass
+    hostname: db
+  app:
+    image: 'peqa/docker-workshop:v1.0'
+    build:
+      context: .
+    hostname: app
+    ports:
+      - "8080:8080"
+    restart: always
+    volumes:
+      - ./app.js:/src/app.js
