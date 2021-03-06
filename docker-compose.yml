@@ -22,9 +22,16 @@ services:
     image: 'peqa/docker-workshop:v1.0'
     build:
       context: .
+    command: npm run dev
+    environment: 
+      MONGODB_USERNAME: mongodb
+      MONGODB_PASSWORD: mongodb
+      MONGODB_DATABASE: mongodb
+      MONGODB_PORT_NUMBER: 27017
+      MONGODB_ADMIN_PASSWORD: mongodbadminpass
     hostname: app
     ports:
       - "8080:8080"
     restart: always
     volumes:
-      - ./app.js:/src/app.js
+      - .:/src/
