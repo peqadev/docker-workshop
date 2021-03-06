@@ -9,7 +9,6 @@ exports.connectDb = () => {
         MONGODB_PORT_NUMBER,
     } = process.env;
     const database_url = `mongodb://${MONGODB_USERNAME}:${MONGODB_PASSWORD}@db:${MONGODB_PORT_NUMBER}/${MONGODB_DATABASE}`;
-    console.log(database_url);
     return mongoose.connect(database_url);
 };
  
